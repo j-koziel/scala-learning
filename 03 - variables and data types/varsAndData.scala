@@ -14,4 +14,5 @@ var y = 15
 val firstName = "John"
 val lastName = "Doe"
 
-def output() = println(s"$firstName $lastName")
+@main def output() = println(s"$firstName $lastName")
+
