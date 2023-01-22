@@ -13,6 +13,7 @@ def changeInstanceProperties(): Unit = {
   p.vocation = "French Horn Player"
 }
 
+// Class with fields and methods
 class PersonFieldsAndMethods(var firstName: String, var lastName: String):
   println("Initialization has begun")
   val fullName = s"$firstName $lastName"
@@ -25,6 +26,14 @@ class PersonFieldsAndMethods(var firstName: String, var lastName: String):
 
 val anotherP = PersonFieldsAndMethods("John", "Doe")
 
+// Class with default parameters
+class Socket(val timeout: Int = 5_000, val linger: Int = 5_000):
+  override def toString =  s"timeout: $timeout, linger: $linger"
+
+// Can used named parameters when declaring new instance
+val aSocket: Socket = Socket(timeout = 10_000, linger = 10_000)
+
 @main def output() = {
-  anotherP.printFullName()
+  // println(aSocket.timeout)
+  print(aSocket.timeout, aSocket.linger)
 }
