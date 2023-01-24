@@ -33,6 +33,8 @@ class Socket(val timeout: Int = 5_000, val linger: Int = 5_000):
 // Can used named parameters when declaring new instance
 val aSocket: Socket = Socket(timeout = 10_000, linger = 10_000)
 
+// Auxillary Constructors
+
 @main def output() = {
   // println(aSocket.timeout)
   print(aSocket.timeout, aSocket.linger)
