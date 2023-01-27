@@ -41,4 +41,5 @@ val fred = Person("Fred", 42)
 
 @main def output(): Unit = {
   println(joe)
+  println(fred)
 }
