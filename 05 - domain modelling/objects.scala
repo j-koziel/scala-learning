@@ -14,6 +14,9 @@ object MathConstants:
   val PI = 3.14
   val E = 2.71828
 
+// Objects also have companion objects
+
+
 @main def output() = {
   println("-- OBJECTS --")
   println(StringUtils.truncate("Chuck Bartowski", 5))
