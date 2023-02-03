@@ -1,33 +1,38 @@
 import scala.io.StdIn.readLine
+import util.control.Breaks._
 
-val questions: Array[String] = Array("How old is Joe Biden?", "What is the capital of Argentina?", "What year did the US host their first Olympic games?")
-val answers: Array[String] = Array("80", "Buenos Aires", "1904")
-var score: Int = 0
+class Quiz(questions: Array[String], correctAnswers: Array[String]):
+  var usersScore: Int = 0
 
-def checkAnswer(correctAnswer: String, usersAnswer: String): Boolean = {
-  if usersAnswer != correctAnswer then
-    return false
-  
-  return true
+  def displayQuestionsAndGetAnswers(): Array[String] = {
+    val answers: Array[String] = Array()
+    for question <- this.questions do {
+      var inputState: Boolean = true
+      while inputState do {
+        breakable {
+          println(question)
+          val answer = readLine("Please enter your answer -> ")
 
-}
+          if (answer == "") then {
+            println("You have entered an invalid answer")
+            break
+          }
+          answers :+ answer
+          inputState = false
+        } 
+      }  
+    }
 
-def askQuestionsAndCheckAnswers(questions: Array[String]): Unit = {
-  for question <- questions do
-    println(question)
-    val usersAnswer: String = readLine("Please enter your answer -> ")
+    return answers
+  }
 
-    if checkAnswer(answers(questions.indexOf(question)), usersAnswer) then
-      println("That is correct, well done!")
-      score += 1
-    else 
-      println("Looks like you got it wrong, please try again. :(")
-}
+  val usersAnswers = displayQuestionsAndGetAnswers()
 
 
 
-@main def hello: Unit = 
-  println("Hello world!")
-  println(msg)
+
+
+@main def Main: Unit = 
+  val quiz = Quiz(Array("How old are you?", "What is your name?", "Please help me?"), Array("17", "Bro", "No"))
 
 def msg = "I was compiled by Scala 3. :)"
