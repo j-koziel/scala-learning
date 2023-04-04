@@ -1,4 +1,4 @@
-// Traits are similar to interfaces in Java 8+
+// Traits.scala are similar to interfaces in Java 8+
 // They can contain abstract methods and fields (methods and fields which are implemented in the inherited class)
 // Can also contain concrete methods and fields (methods and fields which are implemented in the trait itself)
 

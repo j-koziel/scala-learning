@@ -25,7 +25,7 @@ val d: Dog = Dog("Yuki", 1)
   println(d)
 }
 
-// Traits are more flexible compared to abstract classes
+// Traits.scala are more flexible compared to abstract classes
 // You can mix multiple traits but only extend one class
 // Rule of thumb: use classes to create instances of a certain type
 // Use traits when decomposing and reusing behaviour

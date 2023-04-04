@@ -3,6 +3,7 @@ import util.control.Breaks._
 
 class Quiz(questions: Array[String], correctAnswers: Array[String]):
   var usersScore: Int = 0
+  val usersAnswers: Array[String] = displayQuestionsAndGetAnswers()
 
   def displayQuestionsAndGetAnswers(): Array[String] = {
     val answers: Array[String] = Array()
@@ -26,7 +27,22 @@ class Quiz(questions: Array[String], correctAnswers: Array[String]):
     return answers
   }
 
-  val usersAnswers = displayQuestionsAndGetAnswers()
+
+
+  def checkAnswers(): Unit = {
+    for answer <- usersAnswers do {
+      breakable {
+        if (answer != this.correctAnswers[0]) then {
+          break
+        } else {
+          this.usersScore += 1
+        }
+
+      }
+    }
+    
+    println(s"You completed the quiz with a score of $this.usersScore out of $this.correctAnswers.length")
+  } 
 
 
 
@@ -34,5 +50,3 @@ class Quiz(questions: Array[String], correctAnswers: Array[String]):
 
 @main def Main: Unit = 
   val quiz = Quiz(Array("How old are you?", "What is your name?", "Please help me?"), Array("17", "Bro", "No"))
-
-def msg = "I was compiled by Scala 3. :)"
