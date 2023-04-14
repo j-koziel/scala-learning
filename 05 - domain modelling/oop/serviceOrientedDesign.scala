@@ -1,5 +1,5 @@
 trait SubjectObserver:
-//  abstract type members
+  //  abstract type members
   type S <: Subject
   type O <: Observer
 
@@ -13,6 +13,7 @@ trait SubjectObserver:
 
     def publish() =
       for obs <- observers do obs.notify(this)
+
 
   trait Observer:
     def notify(sub: S): Unit
@@ -46,3 +47,4 @@ object SensorReader extends SubjectObserver:
 
   s1.changeValue(2)
   s1.changeValue(3)
+
